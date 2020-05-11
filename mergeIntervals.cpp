@@ -40,9 +40,9 @@ void solve(pi A[], int n, pi newInterval){
 	for (int i = 0; i < n; i++)
 		m.insert(make_pair(A[i].first, A[i].second));
 
-	// Add [-INF, first missing value in the list]
+	// Add [-INF, first missing value before the intervals]
 	m[INT_MIN] = m[m.begin() -> first - 1];
-	// Add [first absent value in the list]
+	// Add [first absent value after the intervals]
 	m[m.rbegin() -> second + 1] = INT_MAX;
 
 	int left = newInterval.first;
